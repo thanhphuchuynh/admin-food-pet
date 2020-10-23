@@ -1,4 +1,4 @@
-import { IconButton, makeStyles, TextField } from '@material-ui/core';
+import { FormControl, IconButton, InputLabel, makeStyles, MenuItem, Select, TextField } from '@material-ui/core';
 import { PhotoCamera } from '@material-ui/icons';
 import Axios from 'axios';
 import React, { useState } from 'react'
@@ -10,6 +10,13 @@ const useStyles = makeStyles((theme) => ({
         margin: theme.spacing(1),
         width: '25ch',
       },
+      formControl: {
+        margin: theme.spacing(1),
+        minWidth: 400,
+      },
+      selectEmpty: {
+        marginTop: theme.spacing(2),
+      },
     },
   }));
 const AddProduct = ()=>{
@@ -17,8 +24,9 @@ const AddProduct = ()=>{
     const classes = useStyles();
 
     const [name,setName] = useState('');
-    const [type,setType] = useState('');
+    const [type,setType] = useState('food');
     const [price,setPrice] = useState();
+    const [number,setNumber] = useState();
     const [description,setDescription] = useState();
 
     const [picture,setPicture] = useState([]);
@@ -32,6 +40,7 @@ const AddProduct = ()=>{
         formData.append('name',name);
         formData.append('type',type);
         formData.append('description',description);
+        formData.append('number',number);
         formData.append('price',price);
         console.log(formData);
         const config = { headers: { 'Content-Type': 'multipart/form-data' } };
@@ -50,7 +59,8 @@ const AddProduct = ()=>{
             {/* <h1>Add Product</h1> */}
             <div style={{
                 margin:"auto",
-                width: "70%"
+                width: "70%",
+               
             }}>
                 <div style={{
                     margin: "auto",
@@ -73,20 +83,45 @@ const AddProduct = ()=>{
                                 type="text"
                                 autoComplete="current-password"
                             />
-                            <TextField
+                            {/* <TextField
                                 style={{margin:"auto",width:'100%',marginTop:20}}
                                 onChange={(text)=>setType(text.target.value)}
                                 id="standard-account-input"
                                 label="Type"
                                 type="text"
                                 autoComplete="current-password"
-                            />
+                            /> */}
+                            <div style={{marginTop: 20}}>
+                                <FormControl style={{width: '100%'}}>
+                                    <InputLabel id="demo-simple-select-label">Type</InputLabel>
+                                    <Select
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
+                                    value={type}
+                                    onChange={(text)=>setType(text.target.value)}
+                                    >
+                                    <MenuItem value='food'>food</MenuItem>
+                                    <MenuItem value='care' >care</MenuItem>
+                                    <MenuItem value='tool' >tool</MenuItem>
+                                    <MenuItem value='other'>other</MenuItem>
+                                    </Select>
+                                </FormControl>
+                            </div>
                             <TextField
                                 style={{margin:"auto",width:'100%',marginTop:20}}
                                 onChange={(text)=>setDescription(text.target.value)}
                                 id="standard-account-input"
                                 label="description"
                                 type="text"
+                                multiline
+                                autoComplete="current-password"
+                            />
+                             <TextField
+                                style={{margin:"auto",width:'100%',marginTop:20}}
+                                onChange={(text)=>setNumber(text.target.value)}
+                                id="standard-account-input"
+                                label="Number"
+                                type="number"
                                 autoComplete="current-password"
                             />
                             <TextField
