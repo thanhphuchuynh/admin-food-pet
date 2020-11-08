@@ -12,6 +12,7 @@
     "axios": "^0.20.0",
     "bootstrap": "^4.5.2",
     "js-cookie": "^2.2.1",
+    "material-table": "^1.69.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
@@ -22,7 +23,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint './src/**/*.{js,jsx}'",
+    "lint:fix": "eslint './src/**/*.{js,jsx}' --fix"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -38,5 +41,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.1.2"
   }
 }

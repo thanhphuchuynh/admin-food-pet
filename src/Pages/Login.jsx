@@ -51,7 +51,7 @@ const Login = ()=>{
                             style={{margin:"auto",width:"100%",marginTop:50}}
                             onClick={()=>{
                                 console.log(account,password);
-                                if(account==='admin' && password==='admin'){
+                                if(account===' ' && password==='admin'){
                                     setCookies('userID',"admin");
                                     window.location.reload(false);
                                 }

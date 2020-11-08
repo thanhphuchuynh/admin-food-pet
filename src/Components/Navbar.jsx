@@ -12,7 +12,7 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-  NavbarText
+  NavbarText,
 } from 'reactstrap';
 
 const NavbarComponent = (props) => {
@@ -39,16 +39,37 @@ const NavbarComponent = (props) => {
               </DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem>
-                 
                   <Link to="/home/addProduct/"> Add Product</Link>
                 </DropdownItem>
                 <DropdownItem>
-                  Management product
+                  <Link to="/home/ManageProduct/"> Manage Product</Link>
                 </DropdownItem>
                 <DropdownItem divider />
+                <DropdownItem>Reset</DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+                User
+              </DropdownToggle>
+              <DropdownMenu right>
                 <DropdownItem>
-                  Reset
+                  <Link to="/home/ManageUser/"> Manage User</Link>
                 </DropdownItem>
+                <DropdownItem divider />
+                <DropdownItem>Reset</DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+                Order
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem>
+                  <Link to="/home/ManageOrder/"> Manage Order</Link>
+                </DropdownItem>
+                <DropdownItem divider />
+                <DropdownItem>Reset</DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
@@ -57,6 +78,6 @@ const NavbarComponent = (props) => {
       </Navbar>
     </div>
   );
-}
+};
 
 export default withRouter(NavbarComponent);
