@@ -9,8 +9,8 @@ const isAuth = () => (getCookies() ? <Home /> : <Login />);
 const RouteItem = () => {
   return (
     <Switch>
-      <Route path="/" exact component={Introduction} />
       <Route path="/home" component={isAuth} />
+      <Route path="/" component={Introduction} />
       <Route path="/introduction" exact component={Introduction} />
     </Switch>
   );
