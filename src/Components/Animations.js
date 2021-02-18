@@ -27,7 +27,7 @@ export const staggerRevealClose = (node1, node2) => {
 };
 
 // STAGGER THE LINKS TO APPEAR
-export const staggerText = (node1, node2, node3) => {
+export const staggerText1 = (node1, node2, node3) => {
   gsap.from([node1, node2, node3], {
     duration: 0.8,
     y: 100,
@@ -37,6 +37,20 @@ export const staggerText = (node1, node2, node3) => {
       amount: 0.3,
     },
   });
+};
+// STAGGER THE LINKS TO APPEAR
+export const staggerText = (node1, node2, node3) => {
+  gsap.from(
+    [node1, node2, node3],
+    1,
+    {
+      y: 100,
+      ease: 'power3.einOutseOut',
+      delay: 0.8,
+    },
+    0.5,
+    'Start'
+  );
 };
 
 // Fade up for the additonal info on our menu
@@ -57,6 +71,7 @@ export const handleHover = (e) => {
     y: 3,
     skewX: 4,
     ease: 'power1.inOut',
+    // css: { fontSize: '10rem' },
   });
 };
 
@@ -67,6 +82,7 @@ export const handleHoverExit = (e) => {
     y: -3,
     skewX: 0,
     ease: 'power1.inOut',
+    // css: { fontSize: '6rem' },
   });
 };
 
